@@ -2,14 +2,14 @@
 
 A simple game. Click the spots as quick as possible.
 
-# Install
+## Install
 
 Clone the repo and open index.html in your favourite browser.
 
-# Cheats
+## Cheats
 
 The smaller the size of the browser window the easier it gets.
 
-# Improvements
+## Improvements
 
 I welcome suggestions on how I can improve my code.
