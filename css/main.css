@@ -1,0 +1,149 @@
+/* animations */
+
+@keyframes dusk {
+    0% { background-color: deepskyblue; }
+    25% { background-color: slateblue; }
+    50% { background-color: darkslateblue; }
+    100% { background-color: midnightblue; }
+}
+
+@keyframes sunset {
+    0% { top: 50px; }
+    100% { top: 150px; }
+}
+
+@keyframes moonrise {
+    0% { top: -150px; }
+    100% { top: 50px; }
+}
+
+@keyframes bounce {
+    0% { color: rgba(255,255,255, 1); }
+    50% { color: rgba(255,255,255, 0.6); }
+    100% { color: rgba(255,255,255, 1); }
+}
+
+/* global */
+
+html {
+  box-sizing: border-box;
+  background: darkcyan;
+  padding: 10px;
+}
+
+html.end {
+    background: black;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    height: calc(100vh - 20px);
+    background-color: rgb(255,255,224);
+}
+
+.end body { background-color: white; }
+
+/* ball */
+
+.ball {
+    position: absolute;
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    cursor: crosshair;
+    animation: bounce 3s infinite;
+    text-align: center;
+    color: white;
+    border-radius: 50%;
+    background-color: orangered;
+    line-height: 100px;
+}
+
+/* override inline styles */
+.end .ball { background-color: black !important; }
+
+/* timer */
+
+#timer {
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 10px;
+    display: none;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    animation: dusk 30s 1;
+    text-align: center;
+    border-radius: 50%;
+    background-color: midnightblue;
+    line-height: 100px;
+}
+
+/* override inline styles */
+.end #timer {
+    background-color: black !important;
+}
+
+/* timer active */
+
+#timer.active {
+    display: block;
+}
+
+#timer.active .sun,
+#timer.active .moon {
+    position: absolute;
+    left: 50px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+    border-radius: 50%;
+    line-height: 40px;
+}
+
+#timer.active .sun {
+    background-color: gold;
+    top: 150px;
+    animation: sunset 30s 1;
+    color: goldenrod;
+}
+
+#timer.active .moon {
+    background-color: white;
+    top: 50px;
+    animation: moonrise 30s 1;
+    color: slategrey;
+}
+
+#timer .reset {
+    display: none;
+    color: orangered;
+}
+
+/* At the end hide the sun and moon, and show the reset link */
+
+.end #timer .sun,
+.end #timer .moon {
+    display: none;
+}
+
+.end #timer .reset {
+    display: inline-block;
+}
